@@ -6,6 +6,7 @@ from sklearn.preprocessing import StandardScaler
 
 #importing ridge and standard scaler
 lasso = pickle.load(open("model/lasso.pkl", 'rb'))
+linreg = pickle.load(open("model/linreg.pkl", 'rb'))
 scaler = pickle.load(open("model/scaler.pkl", 'rb'))
 application = Flask(__name__)
 app = application
@@ -42,7 +43,7 @@ def predict():
         data = [[area, bedrooms, bathrooms, stories, mainroad, guestroom, basement, hotwaterheating, airconditioning, parking, prefarea, furnished, semi_furnished, unfurnished]]
         print(data)
         data = scaler.transform(data)
-        result = lasso.predict(data)
+        result = linreg.predict(data)
 
         return render_template('predict.html', result=int(result[0]))
     else:
