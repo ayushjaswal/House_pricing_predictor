@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+      .navbar {
+        background-color: #007bff;
+        padding: 10px 0;
+        text-align: center;
+      }
+      .navbar a {
+        color: #fff;
+        text-decoration: none;
+        padding: 14px 20px;
+        display: inline-block;
+      }
+      .navbar a:hover {
+        background-color: #0056b3;
+      }
+      .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      h1 {
+        font-size: 2em;
+        margin-bottom: 20px;
+      }
+      p {
+        font-size: 1em;
+        margin-bottom: 20px;
+      }
+      .button {
+        display: inline-block;
+        padding: 15px 25px;
+        font-size: 1.2em;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+      .button:hover {
+        background-color: #0056b3;
+      }
+      .image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+      .about-section {
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        margin: 20px auto;
+        max-width: 800px;
+      }
+      .about-section h2 {
+        font-size: 1.8em;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+    </div>
+
+    <div class="container">
+      <h1>Welcome to the House Price Predictor</h1>
+      <p>
+        This is a new model, and its accuracy is still improving. We are
+        currently using Linear Regression and Lasso techniques to predict house
+        prices.
+      </p>
+      <a href="predict" class="button">Go to Predict House Price</a>
+    </div>
+
+    <div id="about" class="about-section">
+      <h2>About This Project</h2>
+      <p>
+        This project utilizes a Linear Regression model for predicting house
+        prices. The model is based on Linear Regression and Lasso techniques
+        with cross validation. We are continuously improving its accuracy to
+        provide better predictions.
+      </p>
+      <h2>Parameters Used</h2>
+      <p>
+        To predict the price of a house, our model takes into account the
+        following parameters:
+      </p>
+      <ul>
+        <li><strong>Area:</strong> The total area of the house.</li>
+        <li><strong>Bedrooms:</strong> The number of bedrooms in the house.</li>
+        <li>
+          <strong>Bathrooms:</strong> The number of bathrooms in the house.
+        </li>
+        <li><strong>Stories:</strong> The number of stories the house has.</li>
+        <li>
+          <strong>Main Road:</strong> Whether the house is located on a main
+          road.
+        </li>
+        <li><strong>Guestroom:</strong> Whether the house has a guestroom.</li>
+        <li><strong>Basement:</strong> Whether the house has a basement.</li>
+        <li>
+          <strong>Hot Water Heating:</strong> Whether the house has hot water
+          heating.
+        </li>
+        <li>
+          <strong>Air Conditioning:</strong> Whether the house has air
+          conditioning.
+        </li>
+        <li>
+          <strong>Parking:</strong> The number of parking spaces available.
+        </li>
+        <li>
+          <strong>Pref Area:</strong> Whether the house is in a preferred area.
+        </li>
+        <li>
+          <strong>Furnishing Status:</strong> The furnishing status of the
+          house.
+        </li>
+      </ul>
+      <h2>About the Creator</h2>
+      <p>
+        This project is created by a student at the Computer Science and
+        Engineering department. The goal is to apply data science techniques to
+        real-world problems and learn from practical experience.
+      </p>
+    </div>
+  </body>
+</html>

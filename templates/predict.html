@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Predict House Price</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      .navbar {
+        background-color: #007bff;
+        padding: 10px 0;
+        text-align: center;
+      }
+      .navbar a {
+        color: #fff;
+        text-decoration: none;
+        padding: 14px 20px;
+        display: inline-block;
+      }
+      .navbar a:hover {
+        background-color: #0056b3;
+      }
+      .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        flex: 1;
+      }
+      h1 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      form {
+        display: grid;
+        gap: 15px;
+      }
+      label {
+        display: block;
+        font-size: 1em;
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+      .button {
+        display: inline-block;
+        padding: 15px 25px;
+        font-size: 1.2em;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .button:hover {
+        background-color: #0056b3;
+      }
+      .description {
+        font-size: 1em;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      .result {
+        display: none;
+        padding: 20px;
+        background-color: #e0ffe0;
+        border: 1px solid #b2d8b2;
+        border-radius: 5px;
+        color: #2d6a4f;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .result.show {
+        display: block;
+      }
+      footer {
+        background-color: black;
+        color: white;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem 0;
+        position: relative;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="#">Home</a>
+      <a href="/">Back to Home</a>
+    </div>
+
+    {% if result %}
+    <div class="result show">
+      <h2>Predicted House Price:</h2>
+      <p id="price-result">≈{{ result }}</p>
+    </div>
+    {% endif %}
+    <div class="container">
+      <h1>Predict House Price</h1>
+      <p class="description">
+        Fill in the details below to predict the price of a house. Our model
+        takes into account various features to provide an estimate.
+      </p>
+
+      <form action="{{ url_for('predict') }}" method="post">
+        <label for="area">Area (in square feet):</label>
+        <input type="number" id="area" name="area" required />
+
+        <label for="bedrooms">Number of Bedrooms:</label>
+        <input type="number" id="bedrooms" name="bedrooms" required />
+
+        <label for="bathrooms">Number of Bathrooms:</label>
+        <input type="number" id="bathrooms" name="bathrooms" required />
+
+        <label for="stories">Number of Stories:</label>
+        <input type="number" id="stories" name="stories" required />
+
+        <label for="mainroad">On Main Road:</label>
+        <select id="mainroad" name="mainroad" required>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+
+        <label for="guestroom">Has Guestroom:</label>
+        <select id="guestroom" name="guestroom" required>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+
+        <label for="basement">Has Basement:</label>
+        <select id="basement" name="basement" required>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+
+        <label for="hotwaterheating">Has Hot Water Heating:</label>
+        <select id="hotwaterheating" name="hotwaterheating" required>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+
+        <label for="airconditioning">Has Air Conditioning:</label>
+        <select id="airconditioning" name="airconditioning" required>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+
+        <label for="parking">Number of Parking Spaces:</label>
+        <input type="number" id="parking" name="parking" required />
+
+        <label for="prefarea">In Preferred Area:</label>
+        <select id="prefarea" name="prefarea" required>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+
+        <label for="furnishingstatus">Furnishing Status:</label>
+        <select id="furnishingstatus" name="furnishingstatus" required>
+          <option value="furnished">Furnished</option>
+          <option value="semi-furnished">Semi-Furnished</option>
+          <option value="unfurnished">Unfurnished</option>
+        </select>
+
+        <button type="submit" class="button">Submit</button>
+      </form>
+    </div>
+
+    <footer>
+      This is a new model, and its accuracy is still improving. We are currently
+      using Linear Regression and Lasso techniques to predict house prices.
+    </footer>
+  </body>
+</html>
